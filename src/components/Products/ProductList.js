@@ -3,6 +3,7 @@ import { cartActions } from '../../features/cartSlice';
 
 import Product from './Product';
 import { StyledSection } from '../UI/Container.styled';
+import { analytics } from '../../features/analytics';
 
 const gridSettings = {
   cols: '1fr',
@@ -15,6 +16,7 @@ const ProductList = ({ products }) => {
 
   const addItemToCartHandler = ({ id, title, price, image }) => {
     dispatch(cartActions.addItem({ id, title, price, image }));
+    analytics.track('add-item-to-cart', { id, title, price, image });
   };
 
   return (

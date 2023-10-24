@@ -1,8 +1,9 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../../features/cartSlice';
 
 import CartItem from './CartItem';
+import { analytics } from '../../features/analytics';
 
 const CartView = ({ isCart }) => {
   const dispatch = useDispatch();
@@ -23,6 +24,12 @@ const CartView = ({ isCart }) => {
     },
     [dispatch]
   );
+  
+  useEffect(() => {
+    if (isCart) {
+      analytics.track('view-cart', cartItems);
+    }
+  },[isCart, cartItems]);
 
   const cartHeader = isCart && (
     <div className="cart-header">

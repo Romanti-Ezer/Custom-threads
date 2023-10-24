@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import { fetchDataAPI } from './features/dataApi';
+import { analytics } from './features/analytics';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './components/shared/globalStyle';
 import theme from './components/shared/themeSettings';
@@ -29,9 +30,14 @@ const App = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const userCheckedOut = useSelector((state) => state.cart.isCheckedOut);
   const cartItemsExist = cartItems.length > 0;
-
+  
   useEffect(() => {
     dispatch(fetchDataAPI());
+    analytics.page({
+      path: '/',
+      title: 'Home Page',
+      url: 'http://localhost:3000'
+    });
   }, [dispatch]);
 
   return (

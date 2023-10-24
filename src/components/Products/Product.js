@@ -2,8 +2,16 @@ import { ItemCard, DescriptionCard } from './Product.styled';
 import { CtaButton, StyledLink, StyledUtilityBtn } from '../UI/Button.styled';
 import { AiOutlineArrowLeft, AiOutlineEye } from 'react-icons/ai';
 import { Rating } from 'react-simple-star-rating';
+import { analytics } from '../../features/analytics';
+import { useEffect } from 'react';
 
 const Product = ({ product, onAddItem, onGoBack, isDetails, asElement }) => {
+  useEffect(() => {
+    if (isDetails && product) {
+      analytics.track('view-product-details', product);
+    }
+  },[isDetails, product]);
+
   if (!product) return <p></p>;
 
   const price = product.price.toFixed(2);
