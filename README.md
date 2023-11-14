@@ -44,6 +44,10 @@ npm test
 - Sorting
 - Fully-responsive in both landscape & portrait mode.
 
+## <a id='tech'></a>Segment Analytics
+
+- To set up Segment Analytics tracking events, create a `REACT_APP_SEGMENT_WRITE_KEY` variable in a `.env.local` so `src/features/analytics.js` can read the Segment credential
+
 ## <a id='tech'></a>Tech
 
 - React
