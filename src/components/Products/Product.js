@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 const Product = ({ product, onAddItem, onGoBack, isDetails, asElement }) => {
   useEffect(() => {
     if (isDetails && product) {
-      analytics.track('view-product-details', product);
+      analytics.track('Viewed Product Details', product);
     }
   },[isDetails, product]);
 

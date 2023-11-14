@@ -27,7 +27,7 @@ const CartView = ({ isCart }) => {
   
   useEffect(() => {
     if (isCart) {
-      analytics.track('view-cart', cartItems);
+      analytics.track('Viewed Cart', cartItems);
     }
   },[isCart, cartItems]);
 

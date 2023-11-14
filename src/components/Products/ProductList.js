@@ -16,7 +16,7 @@ const ProductList = ({ products }) => {
 
   const addItemToCartHandler = ({ id, title, price, image }) => {
     dispatch(cartActions.addItem({ id, title, price, image }));
-    analytics.track('add-item-to-cart', { id, title, price, image });
+    analytics.track('Add Item To Cart', { id, title, price, image });
   };
 
   return (

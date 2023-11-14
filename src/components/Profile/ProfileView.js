@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { authActions } from '../../features/authSlice';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../../features/authSlice";
 
-import ProfileInfo from './ProfileInfo';
-import StyledLogin from './Login.styled';
-import { StyledUtilityBtn, CtaButton } from '../UI/Button.styled';
-import { ReactComponent as LoginSVG } from '../../assets/svg/login.svg';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { analytics } from '../../features/analytics';
+import ProfileInfo from "./ProfileInfo";
+import StyledLogin from "./Login.styled";
+import { StyledUtilityBtn, CtaButton } from "../UI/Button.styled";
+import { ReactComponent as LoginSVG } from "../../assets/svg/login.svg";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { analytics } from "../../features/analytics";
 
 const loginLayout = {
-  justify: 'space-between',
-  align: 'center',
-  dir: 'column',
+  justify: "space-between",
+  align: "center",
+  dir: "column",
 };
 
 const ProfileView = ({ onDisable }) => {
@@ -25,15 +25,45 @@ const ProfileView = ({ onDisable }) => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      analytics.identify({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'jdoe@localhost:3000'
+      analytics.identify("1234",{
+        email: "jimmy@example.com",
+        phone: "+15551234567",
+        name: "James Morgan McGill",
+        age: 40,
+        pictureURL: 'https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png',
+        industry: "Law",
+        department: "Legal",
+        whatsapp_number: "whatsapp:+15551234567",
+        location: "Albuquerque, NM",
+        interests: ["Law", "Scams", "Karaoke"],
+        favoriteBrands: ["Sharp & Pointy", "LegalEagle", "Saul's Suits"],
+        favoriteCategories: [
+          "Law Books",
+          "Colorful Suits",
+          "Karaoke Microphones",
+        ],
+        shoppingHabits:
+          "Frequently buys law books and colorful suits. Enjoys karaoke and seeking creative legal solutions.",
       });
-      analytics.track('user-login', {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'jdoe@localhost:3000'
+      analytics.track("User Login", {
+        email: "jimmy@example.com",
+        phone: "+15551234567",
+        name: "James Morgan McGill",
+        age: 40,
+        pictureURL: 'https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png',
+        industry: "Law",
+        department: "Legal",
+        whatsapp_number: "whatsapp:+15551234567",
+        location: "Albuquerque, NM",
+        interests: ["Law", "Scams", "Karaoke"],
+        favoriteBrands: ["Sharp & Pointy", "LegalEagle", "Saul's Suits"],
+        favoriteCategories: [
+          "Law Books",
+          "Colorful Suits",
+          "Karaoke Microphones",
+        ],
+        shoppingHabits:
+          "Frequently buys law books and colorful suits. Enjoys karaoke and seeking creative legal solutions.",
       });
     }
   }, [isLoggedIn]);
